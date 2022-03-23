@@ -63,7 +63,7 @@ def main(palcount):
     model.pal_vol_total = pyo.Constraint(expr= model.used_pallet_count * model.pallet_size - sku_volume*sku_numbers == model.obj1)
 
     pallet_use_penalty = sum([50*model.pallet[k] for k in range(PALLET_NUMBERS)])
-    model.obj = pyo.Objective(expr=pallet_use_penalty, sense=maximize)
+    model.obj = pyo.Objective(expr=pallet_use_penalty, sense=minimize)
     
     # model.pprint()
 
